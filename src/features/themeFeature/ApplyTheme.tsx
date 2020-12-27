@@ -26,3 +26,4 @@ const ApplyTheme = ({ children }: Props) => {
 };
 
 export default ApplyTheme;
+

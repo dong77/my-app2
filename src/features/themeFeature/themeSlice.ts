@@ -28,3 +28,4 @@ const themeSlice = createSlice({
 
 export const { applyLightTheme, applyDarkTheme } = themeSlice.actions;
 export default themeSlice.reducer;
+

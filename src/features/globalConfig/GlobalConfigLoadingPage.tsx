@@ -18,3 +18,4 @@ const GlobalConfigLoadingPage = () => {
 };
 
 export default GlobalConfigLoadingPage;
+

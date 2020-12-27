@@ -43,6 +43,7 @@ const globalConfigSlice = createSlice({
   },
 });
 
+
 export const {
   loadingGlobalConfigStart,
   loadingGlobalConfigFailure,

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
-import { useSelector, shallowEqual, useDispatch } from 'react-redux'
-
 import Navbar from 'features/navbar/Navbar'
+import React, { useEffect } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 const AccountPage = () => {
   const dispatch = useDispatch()
   // const globalConfig = useSelector(selectGlobalConfig, shallowEqual)

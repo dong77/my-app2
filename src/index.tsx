@@ -5,13 +5,17 @@ import { ConnectedRouter } from 'connected-react-router'
 import { configuredStore } from './app/store'
 import { createBrowserHistory } from 'history'
 import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
+import ApplyTheme from 'features/themeFeature/ApplyTheme'
+import './styles.css'
 import './index.css'
 
-const history = createBrowserHistory()
-const store = configuredStore(history)
 const AppContainer = process.env.PLAIN_HMR
   ? React.Fragment
   : ReactHotAppContainer
+
+const history = createBrowserHistory()
+const store = configuredStore(history)
+
 const render = () => {
   const App = require('./app/App').default
 
@@ -19,7 +23,9 @@ const render = () => {
     <AppContainer>
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <App />
+          <ApplyTheme>
+            <App />
+          </ApplyTheme>
         </ConnectedRouter>
       </Provider>
     </AppContainer>,

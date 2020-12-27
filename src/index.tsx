@@ -6,6 +6,7 @@ import { configuredStore } from './app/store'
 import { createBrowserHistory } from 'history'
 import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
 import ApplyTheme from 'features/themeFeature/ApplyTheme'
+import './styles.css'
 import './index.css'
 
 const AppContainer = process.env.PLAIN_HMR

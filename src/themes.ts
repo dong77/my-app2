@@ -1,5 +1,7 @@
 //This would be set equal to the root styles in our CSS
 export const lightTheme = {
+  '--bg-color': '#ffffff',
+  '--text-color-1': '#000000',
   '--color-one': '#31e981',
   '--text-for-light-theme': '#000000',
   '--text-for-dark-theme': '#ffffff',
@@ -8,12 +10,13 @@ export const lightTheme = {
   '--color-three': '#2a454d',
   '--color-three-hover': '#477583',
   '--color-four': '#d35269',
-  '--bg-color': '#d3d0d0',
   '--card-color': '#ffffff',
 }
 
 //This is our dark mode
 export const darkTheme = {
+  '--bg-color': '#000000',
+  '--text-color-1': '#ffffff',
   '--color-one': '#286843',
   '--text-for-light-theme': '#ffffff',
   '--text-for-dark-theme': '#000000',
@@ -22,6 +25,5 @@ export const darkTheme = {
   '--color-three': '#61dafb',
   '--color-three-hover': '#477583',
   '--color-four': '#6d343e',
-  '--bg-color': '#000000',
   '--card-color': '#172B4D',
 }

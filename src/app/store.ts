@@ -20,7 +20,6 @@ const getMiddlewares = (history: History) => {
     })
     middleware.push(logger)
   }
-
   return middleware
 }
 

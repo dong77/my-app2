@@ -4,7 +4,7 @@ import { Exchange, Token, Tokens, GlobalConfig } from 'api/loopringAPI'
 import { RootState, selectGlobalConfig } from 'app/rootReducer'
 import { fetchGlobalConfig, isGlobalConfigLoaded } from './globalConfigSlice'
 
-const GlobalConfigLoadingPage = () => {
+export const GlobalConfigLoadingPage = () => {
   const dispatch = useDispatch()
   const globalConfig = useSelector(selectGlobalConfig, shallowEqual)
 

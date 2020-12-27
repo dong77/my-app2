@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit'
 import { connectRouter, RouterState } from 'connected-react-router'
 import globalConfigReducer from 'features/globalConfig/globalConfigSlice'
-import { createBrowserHistory, History } from 'history'
+import { History } from 'history'
 
 const createRootReducer = (history: History) => {
   return combineReducers({

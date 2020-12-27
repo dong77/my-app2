@@ -6,7 +6,6 @@ import { RootState, selectGlobalConfig, selectRouter } from './rootReducer'
 import GlobalConfigLoadingPage from 'features/globalConfig/GlobalConfigLoadingPage'
 import AccountPage from 'features/accountPage/AccountPage'
 import ProfilePage from 'features/profilePage/ProfilePage'
-
 import { isGlobalConfigLoaded } from 'features/globalConfig/globalConfigSlice'
 
 import './App.css'
@@ -15,6 +14,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch()
   const globalConfig = useSelector(selectGlobalConfig)
   const router = useSelector(selectRouter)
+
   const { error, version } = globalConfig
 
   const content = () => {

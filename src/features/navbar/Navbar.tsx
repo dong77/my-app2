@@ -1,18 +1,50 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectRouter } from 'app/rootReducer'
+import classnames from 'classnames'
+
+interface NavbarButtonProps {
+  label: string
+  pathnames: string[]
+  currentPathname?: string
+}
+
+const NavbarButton = ({
+  label,
+  pathnames,
+  currentPathname,
+}: NavbarButtonProps) => {
+  const current = currentPathname || '/'
+  return (
+    <li
+      className={classnames('navbar__button', {
+        ['active']: pathnames.includes(current),
+      })}
+    >
+      <Link to={pathnames[0]}>{label}</Link>
+    </li>
+  )
+}
+
 const Navbar = () => {
+  const router = useSelector(selectRouter)
+  const { pathname } = router.location
+
+  console.log(pathname)
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/account">Account</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
+        <NavbarButton
+          label="Account"
+          pathnames={['/', '/account']}
+          currentPathname={pathname}
+        />
+        <NavbarButton
+          label="Profile"
+          pathnames={['/profile']}
+          currentPathname={pathname}
+        />
       </ul>
     </nav>
   )

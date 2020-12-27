@@ -13,17 +13,18 @@ const store = configuredStore(history)
 const AppContainer = process.env.PLAIN_HMR
   ? React.Fragment
   : ReactHotAppContainer
+
 const render = () => {
   const App = require('./app/App').default
 
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <ApplyTheme>
-          <ConnectedRouter history={history}>
+        <ConnectedRouter history={history}>
+          <ApplyTheme>
             <App />
-          </ConnectedRouter>
-        </ApplyTheme>
+          </ApplyTheme>
+        </ConnectedRouter>
       </Provider>
     </AppContainer>,
     document.getElementById('root')

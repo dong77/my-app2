@@ -17,7 +17,6 @@ const themeSlice = createSlice({
   reducers: {
     applyLightTheme(state, action: PayloadAction<undefined>) {
       state.name = 'light'
-      console.log('apply light')
       state.vars = lightTheme
     },
     applyDarkTheme(state, action: PayloadAction<undefined>) {

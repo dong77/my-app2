@@ -1,0 +1,14 @@
+/*CSS Variables*/
+
+:root {
+  --color-one: #31e981;
+  --text-for-light-theme: #000000;
+  --text-for-dark-theme: #ffffff;
+  --color-two: #61dafb;
+  --color-two-hover: #309ebd;
+  --color-three: #2a454d;
+  --color-three-hover: #477583;
+  --color-four: #d35269;
+  --bg-color: #d3d0d0;
+  --card-color: #ffffff;
+}

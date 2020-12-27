@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import { configuredStore } from './app/store'
 import { createBrowserHistory } from 'history'
 import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
+import ApplyTheme from 'features/themeFeature/ApplyTheme'
 import './index.css'
 
 const history = createBrowserHistory()
@@ -18,9 +19,11 @@ const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
+        <ApplyTheme>
+          <ConnectedRouter history={history}>
+            <App />
+          </ConnectedRouter>
+        </ApplyTheme>
       </Provider>
     </AppContainer>,
     document.getElementById('root')

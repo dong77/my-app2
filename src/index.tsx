@@ -1,18 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-
-import store from './app/store'
-
+import { ConnectedRouter } from 'connected-react-router'
+import { configuredStore } from './app/store'
+import { createBrowserHistory } from 'history'
+import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
 import './index.css'
 
+const history = createBrowserHistory()
+const store = configuredStore(history)
+const AppContainer = process.env.PLAIN_HMR
+  ? React.Fragment
+  : ReactHotAppContainer
 const render = () => {
   const App = require('./app/App').default
 
   ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
+    <AppContainer>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <App />
+        </ConnectedRouter>
+      </Provider>
+    </AppContainer>,
     document.getElementById('root')
   )
 }

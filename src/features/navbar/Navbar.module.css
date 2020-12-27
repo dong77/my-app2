@@ -1,0 +1,7 @@
+.navBarButton a {
+  color: black;
+}
+
+.navBarButton.active a {
+  color: red;
+}

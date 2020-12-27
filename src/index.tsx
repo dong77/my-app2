@@ -8,11 +8,12 @@ import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
 import ApplyTheme from 'features/themeFeature/ApplyTheme'
 import './index.css'
 
-const history = createBrowserHistory()
-const store = configuredStore(history)
 const AppContainer = process.env.PLAIN_HMR
   ? React.Fragment
   : ReactHotAppContainer
+
+const history = createBrowserHistory()
+const store = configuredStore(history)
 
 const render = () => {
   const App = require('./app/App').default

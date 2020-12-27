@@ -52,8 +52,8 @@ const Navbar = () => {
         />
       </ul>
 
-      <button onClick={() => dispatch(applyLightTheme)}>Light</button>
-      <button onClick={() => dispatch(applyDarkTheme)}>Dark</button>
+      <button onClick={() => dispatch(applyLightTheme())}>Light</button>
+      <button onClick={() => dispatch(applyDarkTheme())}>Dark</button>
     </nav>
   )
 }

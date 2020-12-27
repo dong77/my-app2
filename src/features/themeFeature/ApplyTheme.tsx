@@ -11,11 +11,12 @@ const ApplyTheme = ({ children }: Props) => {
   const { name } = theme
 
   const updateCSSVariables = () => {
-    console.log('theme:', name)
+    console.log('THEME:', name)
     const varKeys = Object.keys(theme.vars)
     const varVals = Object.values(theme.vars)
     varKeys.forEach((k, index) => {
       document.documentElement.style.setProperty(k, varVals[index])
+      console.log(k, ':', varVals[index])
     })
   }
 

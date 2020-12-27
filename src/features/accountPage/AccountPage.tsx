@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+
+import Navbar from 'features/navbar/Navbar'
 const AccountPage = () => {
   const dispatch = useDispatch()
   // const globalConfig = useSelector(selectGlobalConfig, shallowEqual)
@@ -9,7 +11,12 @@ const AccountPage = () => {
   //     dispatch(fetchGlobalConfig())
   //   }
   // }, [globalConfig])
-  return <div>Account Page</div>
+  return (
+    <React.Fragment>
+      <Navbar />
+      <div>Account Page</div>
+    </React.Fragment>
+  )
 }
 
 export default AccountPage

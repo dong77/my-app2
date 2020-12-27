@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { configuredStore } from './app/store'
-import { history } from 'app/rootReducer'
+import { createBrowserHistory } from 'history'
 import './index.css'
 
-const store = configuredStore()
+export const history = createBrowserHistory()
 
 const render = () => {
+  const store = configuredStore(history)
   const App = require('./app/App').default
 
   ReactDOM.render(

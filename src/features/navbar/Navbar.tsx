@@ -32,7 +32,6 @@ const Navbar = () => {
   const router = useSelector(selectRouter)
   const { pathname } = router.location
 
-  console.log(pathname)
   return (
     <nav>
       <ul>

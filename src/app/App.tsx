@@ -23,7 +23,6 @@ const App: React.FC = () => {
     } else if (!isGlobalConfigLoaded(globalConfig)) {
       return <GlobalConfigLoadingPage />
     } else {
-      console.log('router:', router)
       return (
         <Switch>
           <Route exact path="/">

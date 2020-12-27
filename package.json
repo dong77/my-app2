@@ -37,11 +37,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write src/**/*.{ts,tsx,css} src/**/**/*{ts,tsx,css}",
-    "lint": "tsc --noEmit && eslint --fix src/**/*.{ts,tsx,css} src/**/**/*{ts,tsx,css}"
+    "format": "prettier --write src/**{/,/**/}*.{ts,tsx,css}",
+    "lint": "tsc --noEmit && eslint --fix src/**{/,/**/}*.{ts,tsx,css}"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx,css} src/**/**/*{ts,tsx,css}": [
+    "src/**{/,/**/}*.{ts,tsx,css}": [
       "prettier --write "
     ]
   },

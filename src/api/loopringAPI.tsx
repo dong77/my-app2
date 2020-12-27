@@ -1,3 +1,45 @@
 import axios from 'axios'
 import parseLink, { Links } from 'parse-link-header'
 
+export interface Exchange {
+	version: string | null
+}
+
+export interface Token {
+	address: string
+	id: number
+	decimals: number
+	symbol: string
+	name: string
+}
+
+export interface Tokens {
+	addressToTokenMap: Record<string, Token> | null
+	idToTokenMap: Record<number, Token> | null
+}
+
+export type GlobalConfig = Exchange & Tokens
+
+//------------- example api
+
+
+export async function loadExchange(): Promise<Exchange> {
+ const url = "https://raw.githubusercontent.com/dong77/api-mock/main/exchange.json"
+ try {
+ 	const resp = await axios.get<Exchange>(url)
+ 	return resp.data
+ } catch (err) {
+ 	throw err
+ }
+}
+
+
+export async function loadTokens(): Promise<Token[]> {
+ const url = "https://raw.githubusercontent.com/dong77/api-mock/main/tokens.json"
+ try {
+ 	const resp = await axios.get<Token[]>(url)
+ 	return resp.data
+ } catch (err) {
+ 	throw err
+ }
+}

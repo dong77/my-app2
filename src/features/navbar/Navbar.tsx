@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { selectRouter } from 'app/rootReducer'
 import classnames from 'classnames'
 import styles from './Navbar.module.css'
+import {
+  applyLightTheme,
+  applyDarkTheme,
+} from 'features/themeFeature/themeSlice'
 
 interface NavbarButtonProps {
   label: string
@@ -29,6 +33,7 @@ const NavbarButton = ({
 }
 
 const Navbar = () => {
+  const dispatch = useDispatch()
   const router = useSelector(selectRouter)
   const { pathname } = router.location
 
@@ -46,6 +51,9 @@ const Navbar = () => {
           currentPathname={pathname}
         />
       </ul>
+
+      <button onClick={() => dispatch(applyLightTheme())}>Light</button>
+      <button onClick={() => dispatch(applyDarkTheme())}>Dark</button>
     </nav>
   )
 }

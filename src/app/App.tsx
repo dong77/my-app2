@@ -19,7 +19,9 @@ const App: React.FC = () => {
       return <div>Error: {error}</div>
     } else if (!isGlobalConfigLoaded(globalConfig)) {
       return <GlobalConfigLoadingPage />
-    } else return <div>Version: {version}</div>
+    } else {
+      return <div>Version: {version}</div>
+    }
   }
 
   return <div className="App">{content()}</div>

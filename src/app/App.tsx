@@ -13,7 +13,6 @@ import './App.css'
 
 const App: React.FC = () => {
   const dispatch = useDispatch()
-
   const globalConfig = useSelector(selectGlobalConfig)
   const router = useSelector(selectRouter)
   const { error, version } = globalConfig

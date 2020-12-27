@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectRouter } from 'app/rootReducer'
 import classnames from 'classnames'
+import styles from './Navbar.module.css'
 
 interface NavbarButtonProps {
   label: string
@@ -18,8 +19,8 @@ const NavbarButton = ({
   const current = currentPathname || '/'
   return (
     <li
-      className={classnames('navbar__button', {
-        ['active']: pathnames.includes(current),
+      className={classnames(styles.navBarButton, {
+        [styles.active]: pathnames.includes(current),
       })}
     >
       <Link to={pathnames[0]}>{label}</Link>

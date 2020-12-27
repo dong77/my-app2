@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
-
 const AccountPage = () => {
   const dispatch = useDispatch()
   // const globalConfig = useSelector(selectGlobalConfig, shallowEqual)
@@ -10,7 +9,6 @@ const AccountPage = () => {
   //     dispatch(fetchGlobalConfig())
   //   }
   // }, [globalConfig])
-
   return <div>Account Page</div>
 }
 

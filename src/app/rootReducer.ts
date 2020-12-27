@@ -1,15 +1,18 @@
 import { combineReducers } from '@reduxjs/toolkit'
+import { connectRouter, RouterState } from 'connected-react-router'
 import globalConfigReducer from 'features/globalConfig/globalConfigSlice'
-import currentViewReducer from 'features/currentView/currentViewSlice'
+import { createBrowserHistory } from 'history'
+
+export const history = createBrowserHistory()
 
 const rootReducer = combineReducers({
+  router: connectRouter(history),
   globalConfig: globalConfigReducer,
-  currentView: currentViewReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>
 
 export const selectGlobalConfig = (state: RootState) => state.globalConfig
-export const selectCurrentView = (state: RootState) => state.currentView.view
+export const selectRouter = (state: RootState) => state.router
 
 export default rootReducer

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
-import { RootState, selectGlobalConfig, selectCurrentView } from './rootReducer'
+import { Route, Switch } from 'react-router'
+import { RootState, selectGlobalConfig, selectRouter } from './rootReducer'
 
 import GlobalConfigLoadingPage from 'features/globalConfig/GlobalConfigLoadingPage'
 import AccountPage from 'features/accountPage/AccountPage'
@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch()
 
   const globalConfig = useSelector(selectGlobalConfig)
-  const view = useSelector(selectCurrentView)
+  const router = useSelector(selectRouter)
   const { error, version } = globalConfig
 
   const content = () => {
@@ -23,10 +23,21 @@ const App: React.FC = () => {
       return <div>Error: {error}</div>
     } else if (!isGlobalConfigLoaded(globalConfig)) {
       return <GlobalConfigLoadingPage />
-    } else if (view === 'account') {
-      return <AccountPage />
-    } else if (view === 'profile') {
-      return <ProfilePage />
+    } else {
+      console.log('router:', router)
+      return (
+        <Switch>
+          <Route exact path="/">
+            <AccountPage />
+          </Route>
+          <Route exact path="/account">
+            <AccountPage />
+          </Route>
+          <Route exact path="/profile">
+            <ProfilePage />
+          </Route>
+        </Switch>
+      )
     }
   }
 

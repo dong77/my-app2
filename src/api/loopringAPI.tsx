@@ -20,26 +20,18 @@ export interface Tokens {
 
 export type GlobalConfig = Exchange & Tokens
 
-//------------- example api
+// ------------- example api
 
 export async function loadExchange(): Promise<Exchange> {
   const url =
     'https://raw.githubusercontent.com/dong77/api-mock/main/exchange.json'
-  try {
-    const resp = await axios.get<Exchange>(url)
-    return resp.data
-  } catch (err) {
-    throw err
-  }
+  const resp = await axios.get<Exchange>(url)
+  return resp.data
 }
 
 export async function loadTokens(): Promise<Token[]> {
   const url =
     'https://raw.githubusercontent.com/dong77/api-mock/main/tokens.json'
-  try {
-    const resp = await axios.get<Token[]>(url)
-    return resp.data
-  } catch (err) {
-    throw err
-  }
+  const resp = await axios.get<Token[]>(url)
+  return resp.data
 }

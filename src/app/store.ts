@@ -34,7 +34,7 @@ export const configuredStore = (history: History, initialState?: RootState) => {
   if (process.env.NODE_ENV === 'development' && module.hot) {
     module.hot.accept(
       './rootReducer',
-      // eslint-disable-next-line
+      // eslint-disable-next-line global-require
       () => store.replaceReducer(require('./rootReducer').default)
     )
   }

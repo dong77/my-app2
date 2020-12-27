@@ -34,8 +34,8 @@ module.exports = {
       'error',
       {
         endOfLine: 'auto',
-          semi: false,
-  singleQuote: true
+        semi: false,
+  		singleQuote: true
       },
     ],
   },

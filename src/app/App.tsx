@@ -1,28 +1,28 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Route, Switch } from "react-router";
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { Route, Switch } from 'react-router'
 
-import GlobalConfigLoadingPage from "features/globalConfig/GlobalConfigLoadingPage";
-import AccountPage from "features/accountPage/AccountPage";
-import ProfilePage from "features/profilePage/ProfilePage";
+import GlobalConfigLoadingPage from 'features/globalConfig/GlobalConfigLoadingPage'
+import AccountPage from 'features/accountPage/AccountPage'
+import ProfilePage from 'features/profilePage/ProfilePage'
 
-import { isGlobalConfigLoaded } from "features/globalConfig/globalConfigSlice";
-import { RootState, selectGlobalConfig, selectRouter } from "./rootReducer";
+import { isGlobalConfigLoaded } from 'features/globalConfig/globalConfigSlice'
+import { RootState, selectGlobalConfig, selectRouter } from './rootReducer'
 
-import "./App.css";
+import './App.css'
 
 const App: React.FC = () => {
-  const dispatch = useDispatch();
-  const globalConfig = useSelector(selectGlobalConfig);
-  const router = useSelector(selectRouter);
-  const { error, version } = globalConfig;
+  const dispatch = useDispatch()
+  const globalConfig = useSelector(selectGlobalConfig)
+  const router = useSelector(selectRouter)
+  const { error, version } = globalConfig
 
   const content = () => {
     if (error) {
-      return <div>Error: {error}</div>;
+      return <div>Error: {error}</div>
     }
     if (!isGlobalConfigLoaded(globalConfig)) {
-      return <GlobalConfigLoadingPage />;
+      return <GlobalConfigLoadingPage />
     }
     return (
       <Switch>
@@ -36,10 +36,10 @@ const App: React.FC = () => {
           <ProfilePage />
         </Route>
       </Switch>
-    );
-  };
+    )
+  }
 
-  return <div className="App">{content()}</div>;
-};
+  return <div className="App">{content()}</div>
+}
 
-export default App;
+export default App

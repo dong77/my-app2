@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { selectRouter } from 'app/rootReducer'
-import classnames from 'classnames'
-import styles from './Navbar.module.css'
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { selectRouter } from "app/rootReducer";
+import classnames from "classnames";
+import styles from "./Navbar.module.css";
 import {
   applyLightTheme,
   applyDarkTheme,
-} from 'features/themeFeature/themeSlice'
+} from "features/themeFeature/themeSlice";
 
 interface NavbarButtonProps {
-  label: string
-  pathnames: string[]
-  currentPathname?: string
+  label: string;
+  pathnames: string[];
+  currentPathname?: string;
 }
 
 const NavbarButton = ({
@@ -20,7 +20,7 @@ const NavbarButton = ({
   pathnames,
   currentPathname,
 }: NavbarButtonProps) => {
-  const current = currentPathname || '/'
+  const current = currentPathname || "/";
   return (
     <li
       className={classnames(styles.navBarButton, {
@@ -29,25 +29,25 @@ const NavbarButton = ({
     >
       <Link to={pathnames[0]}>{label}</Link>
     </li>
-  )
-}
+  );
+};
 
 const Navbar = () => {
-  const dispatch = useDispatch()
-  const router = useSelector(selectRouter)
-  const { pathname } = router.location
+  const dispatch = useDispatch();
+  const router = useSelector(selectRouter);
+  const { pathname } = router.location;
 
   return (
     <nav>
       <ul>
         <NavbarButton
           label="Account"
-          pathnames={['/', '/account']}
+          pathnames={["/", "/account"]}
           currentPathname={pathname}
         />
         <NavbarButton
           label="Profile"
-          pathnames={['/profile']}
+          pathnames={["/profile"]}
           currentPathname={pathname}
         />
       </ul>
@@ -55,7 +55,7 @@ const Navbar = () => {
       <button onClick={() => dispatch(applyLightTheme())}>Light</button>
       <button onClick={() => dispatch(applyDarkTheme())}>Dark</button>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

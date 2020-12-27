@@ -58,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/helper-builder-react-jsx": "^7.10.4",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1"

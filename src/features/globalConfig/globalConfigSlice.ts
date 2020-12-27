@@ -10,7 +10,6 @@ import {
 import { AppThunk } from 'app/store'
 
 type GlobalConfigState = GlobalConfig & {
-  loading: boolean
   error: string | null
 }
 
@@ -18,7 +17,6 @@ const initialState: GlobalConfigState = {
   version: null,
   addressToTokenMap: null,
   idToTokenMap: null,
-  loading: false,
   error: null,
 }
 
@@ -26,20 +24,17 @@ const globalConfigSlice = createSlice({
   name: 'globalConfig',
   initialState,
   reducers: {
-    loadingGlobalConfigStart(state, { payload }: PayloadAction<undefined>) {
+    loadingGlobalConfigStart(state, action: PayloadAction<undefined>) {
       state.error = null
-      state.loading = true
     },
     loadingGlobalConfigFailure(state, { payload }: PayloadAction<string>) {
       state.error = payload
-      state.loading = false
     },
     loadingGlobalConfigSuccess(
       state,
       { payload }: PayloadAction<GlobalConfig>
     ) {
       state.error = null
-      state.loading = false
       const { version, addressToTokenMap, idToTokenMap } = payload
       state.version = version
       state.addressToTokenMap = addressToTokenMap
@@ -54,6 +49,10 @@ export const {
   loadingGlobalConfigSuccess,
 } = globalConfigSlice.actions
 export default globalConfigSlice.reducer
+
+export const isGlobalConfigLoaded = (state: GlobalConfigState) => {
+  return state.version && state.addressToTokenMap && state.idToTokenMap
+}
 
 export const fetchGlobalConfig = (): AppThunk => async (dispatch) => {
   try {
@@ -72,6 +71,7 @@ export const fetchGlobalConfig = (): AppThunk => async (dispatch) => {
       addressToTokenMap,
       idToTokenMap,
     }
+    console.log('config: ', config)
     dispatch(loadingGlobalConfigSuccess(config))
   } catch (err) {
     dispatch(loadingGlobalConfigFailure(err.toString()))

@@ -20,7 +20,7 @@ export interface Tokens {
 
 export type GlobalConfig = Exchange & Tokens
 
-// ------------- example api
+//------------- example api
 
 export async function loadExchange(): Promise<Exchange> {
   const url =

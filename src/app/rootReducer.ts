@@ -18,5 +18,4 @@ export const selectGlobalConfig = (state: RootState) => state.globalConfig
 export const selectRouter = (state: RootState) => state.router
 export const selectTheme = (state: RootState) => state.theme
 
-
 export default createRootReducer

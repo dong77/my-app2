@@ -24,7 +24,6 @@ const getMiddlewares = (history: History) => {
   return middleware
 }
 
-
 export const configuredStore = (history: History, initialState?: RootState) => {
   const store = configureStore({
     reducer: createRootReducer(history),

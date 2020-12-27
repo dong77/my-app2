@@ -9,7 +9,6 @@ import ProfilePage from 'features/profilePage/ProfilePage'
 import { isGlobalConfigLoaded } from 'features/globalConfig/globalConfigSlice'
 import { RootState, selectGlobalConfig, selectRouter } from './rootReducer'
 
-
 import './App.css'
 
 const App: React.FC = () => {

@@ -1,8 +1,8 @@
-import Navbar from "features/navbar/Navbar";
-import React, { useEffect } from "react";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import Navbar from 'features/navbar/Navbar'
+import React, { useEffect } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 const AccountPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   // const globalConfig = useSelector(selectGlobalConfig, shallowEqual)
 
   // useEffect(() => {
@@ -15,8 +15,7 @@ const AccountPage = () => {
       <Navbar />
       <div>Account Page</div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default AccountPage;
-
+export default AccountPage

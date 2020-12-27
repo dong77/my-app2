@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { useSelector, shallowEqual, useDispatch } from 'react-redux'
 import { selectTheme } from 'app/rootReducer'
+import React, { useEffect } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 interface Props {
   children: React.ReactNode

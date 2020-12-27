@@ -42,7 +42,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-  "eslint --fix",
+      "eslint --fix",
       "prettier --single-quote --write"
     ]
   },
@@ -69,6 +69,7 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/react-router-redux": "^5.0.18",
     "@types/redux-logger": "^3.0.8",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.16.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^4.3.6",

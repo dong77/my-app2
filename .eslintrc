@@ -1,10 +1,16 @@
 {
-  "plugins": ["simple-import-sort"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "simple-import-sort"
+  ],
   "rules": {
-    "simple-import-sort/imports": "error",
+    "import/order": "off",
     "simple-import-sort/exports": "error",
-    "sort-imports": "off",
-    "import/order": "off"
+    "simple-import-sort/imports": "error",
+    "sort-imports": "off"
   }
-
 }

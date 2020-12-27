@@ -6,9 +6,8 @@ import { createLogger } from 'redux-logger'
 import { createBrowserHistory, History } from 'history'
 import createRootReducer, { RootState } from './rootReducer'
 
-export const configuredStore = (history: History, initialState?: RootState) => {
+const getMiddlewares = (history: History) => {
   const middleware = [...getDefaultMiddleware(), routerMiddleware(history)]
-
   const excludeLoggerEnvs = ['test', 'production']
   const shouldIncludeLogger = !excludeLoggerEnvs.includes(
     process.env.NODE_ENV || ''
@@ -22,10 +21,13 @@ export const configuredStore = (history: History, initialState?: RootState) => {
     middleware.push(logger)
   }
 
-  const rootReducer = createRootReducer(history)
+  return middleware
+}
+
+export const configuredStore = (history: History, initialState?: RootState) => {
   const store = configureStore({
-    reducer: rootReducer,
-    middleware,
+    reducer: createRootReducer(history),
+    middleware: getMiddlewares(history),
     preloadedState: initialState,
   })
 

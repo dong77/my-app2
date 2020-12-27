@@ -1,15 +1,12 @@
 import React, { useEffect } from 'react'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
 import { Exchange, Token, Tokens, GlobalConfig } from 'api/loopringAPI'
-import { RootState } from 'app/rootReducer'
+import { RootState, selectGlobalConfig } from 'app/rootReducer'
 import { fetchGlobalConfig, isGlobalConfigLoaded } from './globalConfigSlice'
+
 export const GlobalConfigLoadingPage = () => {
   const dispatch = useDispatch()
-
-  const globalConfig = useSelector(
-    (state: RootState) => state.globalConfig,
-    shallowEqual
-  )
+  const globalConfig = useSelector(selectGlobalConfig, shallowEqual)
 
   useEffect(() => {
     if (!isGlobalConfigLoaded(globalConfig)) {

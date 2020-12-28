@@ -2,6 +2,14 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Route, Switch } from 'react-router'
 
+import DemoPage from 'pages/DemoPage/DemoPage'
+import HomePage from 'pages/HomePage/HomePage'
+import AccountPage2 from 'pages/AccountPage/AccountPage'
+import ExchangePage from 'pages/ExchangePage/ExchangePage'
+import ProfilePage2 from 'pages/ProfilePage/ProfilePage'
+import DocsPage from 'pages/DocsPage/DocsPage'
+import HelpPage from 'pages/HelpPage/HelpPage'
+
 import GlobalConfigLoadingPage from 'features/globalConfig/GlobalConfigLoadingPage'
 import AccountPage from 'features/accountPage/AccountPage'
 import ProfilePage from 'features/profilePage/ProfilePage'
@@ -34,6 +42,21 @@ const App: React.FC = () => {
         </Route>
         <Route exact path="/profile">
           <ProfilePage />
+        </Route>
+        <Route exact path="/demo">
+          <DemoPage />
+        </Route>
+        <Route exact path="/account2">
+          <AccountPage2 />
+        </Route>
+        <Route exact path="/exchange">
+          <ExchangePage />
+        </Route>
+        <Route exact path="/docs">
+          <DocsPage />
+        </Route>
+        <Route exact path="/help">
+          <HelpPage />
         </Route>
       </Switch>
     )

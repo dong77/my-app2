@@ -4,15 +4,13 @@ import { Route, Switch } from 'react-router'
 
 import DemoPage from 'pages/DemoPage/DemoPage'
 import HomePage from 'pages/HomePage/HomePage'
-import AccountPage2 from 'pages/AccountPage/AccountPage'
+import AccountPage from 'pages/AccountPage/AccountPage'
 import ExchangePage from 'pages/ExchangePage/ExchangePage'
-import ProfilePage2 from 'pages/ProfilePage/ProfilePage'
+import ProfilePage from 'pages/ProfilePage/ProfilePage'
 import DocsPage from 'pages/DocsPage/DocsPage'
 import HelpPage from 'pages/HelpPage/HelpPage'
 
 import GlobalConfigLoadingPage from 'features/globalConfig/GlobalConfigLoadingPage'
-import AccountPage from 'features/accountPage/AccountPage'
-import ProfilePage from 'features/profilePage/ProfilePage'
 
 import { isGlobalConfigLoaded } from 'features/globalConfig/globalConfigSlice'
 import { RootState, selectGlobalConfig, selectRouter } from './rootReducer'
@@ -37,17 +35,14 @@ const App: React.FC = () => {
         <Route exact path="/">
           <AccountPage />
         </Route>
-        <Route exact path="/account">
-          <AccountPage />
-        </Route>
         <Route exact path="/profile">
           <ProfilePage />
         </Route>
         <Route exact path="/demo">
           <DemoPage />
         </Route>
-        <Route exact path="/account2">
-          <AccountPage2 />
+        <Route exact path="/account">
+          <AccountPage />
         </Route>
         <Route exact path="/exchange">
           <ExchangePage />

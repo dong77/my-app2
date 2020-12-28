@@ -1,10 +1,37 @@
 import React from 'react'
 import styles from './ConnectButton.module.scss'
+import {
+  LocalizeContextProps,
+  Translate as T,
+  withLocalize,
+} from 'react-localize-redux'
 
-const ConnectButton: React.FC = () => (
-  <div className={styles.ConnectButton} data-testid="ConnectButton">
-    ConnectButton Component
-  </div>
+interface ConnectButtonProps {
+  children: React.ReactNode
+  onClick?: any
+}
+
+export const ConnectButton = ({ children, onClick }: ConnectButtonProps) => (
+  <button
+    className={styles.ConnectButton}
+    data-testid="ConnectButton"
+    onClick={onClick}
+  >
+    {children}
+  </button>
 )
 
-export default ConnectButton
+export type ConnectButtonLocalizedProps = LocalizeContextProps &
+  ConnectButtonProps
+
+const ConnectButtonLocalized = (props: ConnectButtonLocalizedProps) => (
+  <ConnectButton {...props}>
+    <T id="greeting" data={{ name: 'Testy McTest' }}>
+      {'Hello ${ name }'}
+    </T>
+  </ConnectButton>
+)
+
+export default withLocalize(ConnectButtonLocalized)
+
+// https://ryandrewjohnson.github.io/react-localize-redux-docs/#add-translations-to-components

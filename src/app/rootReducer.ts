@@ -3,9 +3,11 @@ import { connectRouter, RouterState } from 'connected-react-router'
 import globalConfig from 'features/globalConfig/globalConfigSlice'
 import theme from 'features/themeFeature/themeSlice'
 import { createBrowserHistory, History } from 'history'
+import { localizeReducer } from 'react-localize-redux'
 
 const createRootReducer = (history: History) => {
   return combineReducers({
+    localize: localizeReducer,
     router: connectRouter(history),
     globalConfig,
     theme,

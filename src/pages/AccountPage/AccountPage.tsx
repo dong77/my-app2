@@ -1,7 +1,9 @@
+import React from 'react'
+import styles from './AccountPage.module.scss'
 import Navbar from 'features/navbar/Navbar'
-import React, { useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-const AccountPage = () => {
+
+const AccountPage: React.FC = () => {
   const dispatch = useDispatch()
   // const globalConfig = useSelector(selectGlobalConfig, shallowEqual)
 
@@ -11,10 +13,10 @@ const AccountPage = () => {
   //   }
   // }, [globalConfig])
   return (
-    <React.Fragment>
+    <div className={styles.AccountPage} data-testid="AccountPage">
       <Navbar />
       <div>Account Page</div>
-    </React.Fragment>
+    </div>
   )
 }
 

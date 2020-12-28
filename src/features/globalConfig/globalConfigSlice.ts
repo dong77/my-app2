@@ -57,6 +57,7 @@ export const isGlobalConfigLoaded = (state: GlobalConfigState) => {
 export const fetchGlobalConfig = (): AppThunk => async (dispatch) => {
   try {
     dispatch(loadingGlobalConfigStart())
+
     const [exchange, tokens] = await Promise.all([loadExchange(), loadTokens()])
 
     let addressToTokenMap: Record<string, Token> = {}

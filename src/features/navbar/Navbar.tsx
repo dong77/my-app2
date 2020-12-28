@@ -38,7 +38,7 @@ const Navbar = () => {
   const { pathname } = router.location
 
   return (
-    <nav>
+    <nav className={'l--has-shadow'}>
       <ul>
         <NavbarButton
           label="Home"

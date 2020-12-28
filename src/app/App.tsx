@@ -6,6 +6,7 @@ import DemoPage from 'pages/DemoPage/DemoPage'
 import HomePage from 'pages/HomePage/HomePage'
 import AccountPage from 'pages/AccountPage/AccountPage'
 import ExchangePage from 'pages/ExchangePage/ExchangePage'
+import DeFiPage from 'pages/DeFiPage/DeFiPage'
 import ProfilePage from 'pages/ProfilePage/ProfilePage'
 import DocsPage from 'pages/DocsPage/DocsPage'
 import HelpPage from 'pages/HelpPage/HelpPage'
@@ -33,7 +34,7 @@ const App: React.FC = () => {
     return (
       <Switch>
         <Route exact path="/">
-          <AccountPage />
+          <HomePage />
         </Route>
         <Route exact path="/profile">
           <ProfilePage />
@@ -46,6 +47,9 @@ const App: React.FC = () => {
         </Route>
         <Route exact path="/exchange">
           <ExchangePage />
+        </Route>
+        <Route exact path="/defi">
+          <DeFiPage />
         </Route>
         <Route exact path="/docs">
           <DocsPage />

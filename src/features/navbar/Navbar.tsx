@@ -41,13 +41,43 @@ const Navbar = () => {
     <nav>
       <ul>
         <NavbarButton
+          label="Home"
+          pathnames={['/']}
+          currentPathname={pathname}
+        />
+        <NavbarButton
           label="Account"
-          pathnames={['/', '/account']}
+          pathnames={['/account']}
+          currentPathname={pathname}
+        />
+        <NavbarButton
+          label="Exchange"
+          pathnames={['/exchange']}
+          currentPathname={pathname}
+        />
+        <NavbarButton
+          label="DeFi"
+          pathnames={['/defi']}
           currentPathname={pathname}
         />
         <NavbarButton
           label="Profile"
           pathnames={['/profile']}
+          currentPathname={pathname}
+        />
+        <NavbarButton
+          label="Documentation"
+          pathnames={['/docs']}
+          currentPathname={pathname}
+        />
+        <NavbarButton
+          label="Help"
+          pathnames={['/help']}
+          currentPathname={pathname}
+        />
+        <NavbarButton
+          label="Demo"
+          pathnames={['/demo']}
           currentPathname={pathname}
         />
       </ul>

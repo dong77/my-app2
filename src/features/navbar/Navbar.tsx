@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectRouter } from 'app/rootReducer'
 import classnames from 'classnames'
-import styles from './Navbar.module.css'
+import styles from './Navbar.module.scss'
 import {
   applyLightTheme,
   applyDarkTheme,

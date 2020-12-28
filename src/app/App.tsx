@@ -16,7 +16,7 @@ import GlobalConfigLoadingPage from 'features/globalConfig/GlobalConfigLoadingPa
 import { isGlobalConfigLoaded } from 'features/globalConfig/globalConfigSlice'
 import { RootState, selectGlobalConfig, selectRouter } from './rootReducer'
 
-import './App.css'
+import './App.scss'
 
 const App: React.FC = () => {
   const dispatch = useDispatch()

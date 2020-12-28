@@ -6,8 +6,8 @@ import { configuredStore } from './app/store'
 import { createBrowserHistory } from 'history'
 import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
 import ApplyTheme from 'features/themeFeature/ApplyTheme'
-import './styles.css'
-import './index.css'
+import './styles.scss'
+import './index.scss'
 
 const AppContainer = process.env.PLAIN_HMR
   ? React.Fragment

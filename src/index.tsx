@@ -21,20 +21,21 @@ const AppContainer = process.env.PLAIN_HMR
 const history = createBrowserHistory()
 const store = configuredStore(history)
 
+store.dispatch(
+  initialize({
+    languages: [
+      { name: 'English', code: 'en' },
+      { name: '中文', code: 'zh' },
+    ],
+    options: {
+      renderToStaticMarkup: false,
+      renderInnerHtml: true,
+      defaultLanguage: 'zh',
+    },
+  })
+)
+
 const render = () => {
-  store.dispatch(
-    initialize({
-      languages: [
-        { name: 'English', code: 'en' },
-        { name: '中文', code: 'zh' },
-      ],
-      options: {
-        renderToStaticMarkup: false,
-        renderInnerHtml: true,
-        defaultLanguage: 'en',
-      },
-    })
-  )
   const App = require('./app/App').default
 
   ReactDOM.render(

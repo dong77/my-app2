@@ -7,9 +7,16 @@
     "default": {
       "path": "src/components",
       "withLazy": false,
-      "withStory": false,
+      "withStory": true,
       "withStyle": true,
       "withTest": true
+    },
+    "layout": {
+      "path": "src/layout",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": true,
+      "withTest": false
     },
     "page": {
       "path": "src/pages",

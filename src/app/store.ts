@@ -7,7 +7,12 @@ import { createBrowserHistory, History } from 'history'
 import createRootReducer, { RootState } from './rootReducer'
 
 const getMiddlewares = (history: History) => {
-  const middleware = [...getDefaultMiddleware(), routerMiddleware(history)]
+  const middleware = [
+    ...getDefaultMiddleware({
+      serializableCheck: false, // disable this check because of react-localize-redux
+    }),
+    routerMiddleware(history),
+  ]
   const excludeLoggerEnvs = ['test', 'production']
   const shouldIncludeLogger = !excludeLoggerEnvs.includes(
     process.env.NODE_ENV || ''

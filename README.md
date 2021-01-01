@@ -7,4 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Create a new Components
 
-npx generate-react-cli component ComponentName --type=page/feature/default
+npx generate-react-cli component ComponentName --type=page/feature/default/layout
+
+
+## Rules
+
+- No inheritance - https://reactjs.org/docs/composition-vs-inheritance.html#so-what-about-inheritance

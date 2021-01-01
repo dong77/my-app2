@@ -8,6 +8,7 @@ import {
   applyLightTheme,
   applyDarkTheme,
 } from 'features/themeFeature/themeSlice'
+import ConnectButtonLocalized from 'components/ConnectButton/ConnectButton'
 
 interface NavbarButtonProps {
   label: string
@@ -38,7 +39,7 @@ const Navbar = () => {
   const { pathname } = router.location
 
   return (
-    <nav>
+    <nav className={'l--has-shadow'}>
       <ul>
         <NavbarButton
           label="Home"
@@ -82,8 +83,12 @@ const Navbar = () => {
         />
       </ul>
 
-      <button onClick={() => dispatch(applyLightTheme())}>Light</button>
-      <button onClick={() => dispatch(applyDarkTheme())}>Dark</button>
+      <ConnectButtonLocalized onClick={() => dispatch(applyLightTheme())}>
+        Light
+      </ConnectButtonLocalized>
+      <ConnectButtonLocalized onClick={() => dispatch(applyDarkTheme())}>
+        Dark
+      </ConnectButtonLocalized>
     </nav>
   )
 }

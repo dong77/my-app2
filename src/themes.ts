@@ -11,6 +11,7 @@ export const lightTheme = {
   '--color-three-hover': '#477583',
   '--color-four': '#d35269',
   '--card-color': '#ffffff',
+  '--card-shadow-color': 'rgba(7, 10, 25, 0.2)',
 }
 
 //This is our dark mode
@@ -26,4 +27,5 @@ export const darkTheme = {
   '--color-three-hover': '#477583',
   '--color-four': '#6d343e',
   '--card-color': '#172B4D',
+  '--card-shadow-color': 'rgba(7, 10, 25, 0.2)',
 }

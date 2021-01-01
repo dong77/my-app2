@@ -13,6 +13,7 @@ import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
 import ApplyTheme from 'features/themeFeature/ApplyTheme'
 import './styles.scss'
 import './index.scss'
+import translation from './translation.json'
 
 const AppContainer = process.env.PLAIN_HMR
   ? React.Fragment
@@ -23,10 +24,8 @@ const store = configuredStore(history)
 
 store.dispatch(
   initialize({
-    languages: [
-      { name: 'English', code: 'en' },
-      { name: '中文', code: 'zh' },
-    ],
+    languages: ['en', 'zh'],
+    translation,
     options: {
       renderToStaticMarkup: false,
       renderInnerHtml: true,

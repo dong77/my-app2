@@ -5,6 +5,7 @@ import {
   Translate as T,
   withLocalize,
 } from 'react-localize-redux'
+import zhTranslation from './zh.json'
 
 interface ConnectButtonProps {
   children: React.ReactNode
@@ -24,13 +25,15 @@ export const ConnectButton = ({ children, onClick }: ConnectButtonProps) => (
 export type ConnectButtonLocalizedProps = LocalizeContextProps &
   ConnectButtonProps
 
-const ConnectButtonLocalized = (props: ConnectButtonLocalizedProps) => (
-  <ConnectButton {...props}>
-    <T id="greeting" data={{ name: 'Testy McTest' }}>
-      {'Hello ${ name }'}
-    </T>
-  </ConnectButton>
-)
+const ConnectButtonLocalized = (props: ConnectButtonLocalizedProps) => {
+  props.addTranslationForLanguage(zhTranslation, 'zh')
+  console.log('activeLanguage', props)
+  return (
+    <ConnectButton {...props}>
+      <T id="greeting">Greeting</T>
+    </ConnectButton>
+  )
+}
 
 export default withLocalize(ConnectButtonLocalized)
 

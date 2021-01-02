@@ -2,6 +2,8 @@ import path from "path";
 import webpack from "webpack";
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv = require("dotenv-webpack");
 
 const config: webpack.Configuration = {
   entry: "./src/index.tsx",
@@ -56,9 +58,12 @@ const config: webpack.Configuration = {
   devServer: {
     contentBase: path.join(__dirname, "build"),
     compress: true,
-    port: 4000,
+    port: 3000,
+    hot: true,
   },
   plugins: [
+    new Dotenv(),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),

@@ -57,7 +57,7 @@ const Navbar = () => {
           currentPathname={pathname}
         />
         <NavbarButton
-          label="DeFi3"
+          label="DeFi1"
           pathnames={['/defi']}
           currentPathname={pathname}
         />

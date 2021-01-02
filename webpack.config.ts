@@ -52,7 +52,6 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
-    publicPath: "public"
   },
   devServer: {
     contentBase: path.join(__dirname, "build"),

@@ -59,11 +59,14 @@ const config: webpack.Configuration = {
     contentBase: path.join(__dirname, "build"),
     compress: true,
     port: 3000,
-    hot: true,
+    hot: false,
+    watchContentBase: true,
+    liveReload: true
   },
   plugins: [
     new Dotenv(),
     new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),

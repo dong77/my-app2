@@ -42,12 +42,12 @@ const Navbar = () => {
     <nav className={'l--has-shadow'}>
       <ul>
         <NavbarButton
-          label="Home"
+          label="Home222"
           pathnames={['/']}
           currentPathname={pathname}
         />
         <NavbarButton
-          label="Account"
+          label="Account2111"
           pathnames={['/account']}
           currentPathname={pathname}
         />
@@ -57,7 +57,7 @@ const Navbar = () => {
           currentPathname={pathname}
         />
         <NavbarButton
-          label="DeFi1"
+          label="DeFi"
           pathnames={['/defi']}
           currentPathname={pathname}
         />

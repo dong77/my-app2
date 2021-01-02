@@ -10,14 +10,14 @@ import {
   initialize,
 } from 'react-localize-redux'
 import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
-import ApplyTheme from './features/themeFeature/ApplyTheme'
+import ApplyTheme from 'features/themeFeature/ApplyTheme'
 import './styles.scss'
 import './index.scss'
 import translation from './translation.json'
 
-// const AppContainer = process.env.PLAIN_HMR
-//   ? React.Fragment
-//   : ReactHotAppContainer
+const AppContainer = process.env.PLAIN_HMR
+  ? React.Fragment
+  : ReactHotAppContainer
 
 const history = createBrowserHistory()
 const store = configuredStore(history)
@@ -38,7 +38,7 @@ const render = () => {
   const App = require('./app/App').default
 
   ReactDOM.render(
-    <React.Fragment>
+    <AppContainer>
       <Provider store={store}>
         <LocalizeProvider store={store}>
           <ConnectedRouter history={history}>
@@ -48,13 +48,13 @@ const render = () => {
           </ConnectedRouter>
         </LocalizeProvider>
       </Provider>
-    </React.Fragment>,
+    </AppContainer>,
     document.getElementById('root')
   )
 }
 
 render()
 
-// if (process.env.NODE_ENV === 'development' && module.hot) {
-//   module.hot.accept('./app/App', render)
-// }
+if (process.env.NODE_ENV === 'development' && module.hot) {
+  module.hot.accept('./app/App', render)
+}

@@ -66,6 +66,10 @@ new CopyWebpackPlugin({
             patterns: [
                 { from: 'public' }
             ]
+        }),
+ new webpack.DefinePlugin({
+            'process.env.PLAIN_HMR': JSON.stringify('true'),
+            'process.env.NODE_ENV': JSON.stringify('development'),
         })
 
     ]

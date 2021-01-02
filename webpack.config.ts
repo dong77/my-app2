@@ -52,6 +52,7 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
+    publicPath: "public"
   },
   devServer: {
     contentBase: path.join(__dirname, "build"),
@@ -63,11 +64,14 @@ const config: webpack.Configuration = {
       template: "./public/index.html",
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "public" }],
+      patterns: [{ from: "public", to: "public"}],
     }),
     new webpack.DefinePlugin({
       "process.env.PLAIN_HMR": JSON.stringify("true"),
       "process.env.NODE_ENV": JSON.stringify("development"),
+    }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
     }),
   ],
 };

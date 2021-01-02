@@ -15,6 +15,8 @@ import './styles.scss'
 import './index.scss'
 import translation from './translation.json'
 
+console.log('public url: ', process.env.PUBLIC_URL)
+
 const AppContainer = process.env.PLAIN_HMR
   ? React.Fragment
   : ReactHotAppContainer

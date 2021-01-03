@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch, shallowEqual } from 'react-redux'
 import { selectDemo } from 'app/rootReducer'
 import classnames from 'classnames'
@@ -14,6 +14,7 @@ interface NavbarButtonProps {
 const DemoFeature = () => {
   const dispatch = useDispatch()
   const demo = useSelector(selectDemo, shallowEqual)
+  const [input, setInput] = useState('')
 
   console.log('demo itmes', demo)
 
@@ -39,7 +40,30 @@ const DemoFeature = () => {
     timestamp: item.timestamp,
   }))
 
-  return <DemoDataTable items={items} />
+  return (
+    <div>
+      <input
+        value={input}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setInput(e.target.value)
+        }}
+      />
+      <button
+        onClick={() => {
+          if (input.length === 0) return
+          const time = Date.now()
+
+          const value = input + '100000000000000000'
+          setInput('')
+
+          dispatch(addDemoData({ label: 'new', value: value, timestamp: time }))
+        }}
+      >
+        Add
+      </button>
+      <DemoDataTable items={items} />
+    </div>
+  )
 }
 
 export default DemoFeature

@@ -41,7 +41,11 @@ const demoSlice = createSlice({
     addingDemoDataSuccess(state, { payload }: PayloadAction<DemoDataItem>) {
       state.error = null
       state.status = null
-      // TODO
+      if (state.items === null) {
+        state.items = [payload]
+      } else {
+        state.items.push(payload)
+      }
     },
   },
 })

@@ -26,7 +26,7 @@ export interface DemoDataTableProps {
   /**
    * a list of row data
    */
-  items: RowData[]
+  items?: RowData[]
 }
 
 /**

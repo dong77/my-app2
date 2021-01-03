@@ -26,6 +26,4 @@ Default.args = {
 }
 
 export const Empty = Template.bind({})
-Empty.args = {
-  items: null,
-}
+Empty.args = {}

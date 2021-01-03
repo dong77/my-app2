@@ -12,8 +12,8 @@ const Template: Story<DemoDataTableProps> = (args) => (
   <DemoDataTable {...args} />
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Default = Template.bind({})
+Default.args = {
   items: [
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
@@ -23,4 +23,9 @@ Primary.args = {
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
   ],
+}
+
+export const Empty = Template.bind({})
+Empty.args = {
+  items: null,
 }

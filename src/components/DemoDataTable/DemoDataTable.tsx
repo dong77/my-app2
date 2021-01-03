@@ -33,6 +33,7 @@ export interface DemoDataTableProps {
  * A component to demo how we seperate UI from logics
  */
 const DemoDataTable = ({ items }: DemoDataTableProps) => {
+  const _items = items || []
   const func = (item: RowData, idx: number) => (
     <tr key={idx}>
       <td>{item.label}</td>
@@ -52,7 +53,7 @@ const DemoDataTable = ({ items }: DemoDataTableProps) => {
           <th>Time</th>
         </tr>
       </thead>
-      <tbody>{items.map(func)}</tbody>
+      <tbody>{_items.map(func)}</tbody>
     </table>
   )
 }

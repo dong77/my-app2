@@ -13,3 +13,11 @@ npx generate-react-cli component ComponentName --type=page/feature/default/layou
 ## Rules
 
 - No inheritance - https://reactjs.org/docs/composition-vs-inheritance.html#so-what-about-inheritance
+
+
+## Storybook
+
+run ` yarn storybook` to start storybook.
+
+
+All components should have their storybook page. DemoDataTable serves as a good example, its story book can be accessed at http://localhost:6006/?path=/story/demodatatable--default.

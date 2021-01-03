@@ -61,7 +61,8 @@ const config: webpack.Configuration = {
     port: 3000,
     hot: false,
     watchContentBase: true,
-    liveReload: true
+    liveReload: true,
+    historyApiFallback: true,
   },
   plugins: [
     new Dotenv(),

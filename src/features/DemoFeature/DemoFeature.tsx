@@ -4,6 +4,7 @@ import { selectDemo } from 'app/rootReducer'
 import classnames from 'classnames'
 import DemoDataTable, { RowData } from 'components/DemoDataTable/DemoDataTable'
 import { fetchDemoData, addDemoData } from './DemoFeatureSlice'
+import { formatUnit } from 'utils/AmountUtils'
 interface NavbarButtonProps {
   label: string
   pathnames: string[]
@@ -33,7 +34,7 @@ const DemoFeature = () => {
   const demoItems = demo.items || []
   const items = demoItems.map((item, idx) => ({
     label: item.label,
-    value: item.value.toString(),
+    value: formatUnit(item.value, 18, 0),
     unit: 'ETH',
     timestamp: item.timestamp,
   }))

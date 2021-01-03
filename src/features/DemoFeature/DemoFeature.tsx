@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectDemo } from 'app/rootReducer'
 import classnames from 'classnames'
-import DemoDataTable from 'components/DemoDataTable/DemoDataTable'
+import DemoDataTable, { RowData } from 'components/DemoDataTable/DemoDataTable'
 import { fetchDemoData, addDemoData } from './DemoFeatureSlice'
 
 interface NavbarButtonProps {
@@ -13,13 +13,24 @@ interface NavbarButtonProps {
 
 const DemoFeature = () => {
   const dispatch = useDispatch()
-  const demo = useSelector(selectDemo)
 
   useEffect(() => {
-    dispatch(fetchDemoData())
+    if (!demo.items || demo.items.length === 0) {
+      // dispatch(fetchDemoData())
+    }
   })
 
-  return <DemoDataTable />
+  const demo = useSelector(selectDemo)
+
+  if (demo.error) {
+    return <div>Error: {demo.error}</div>
+  }
+
+  if (demo.status !== null) {
+    return <div>Status: {demo.status}</div>
+  }
+
+  return <DemoDataTable items={[]} />
 }
 
 export default DemoFeature

@@ -8,7 +8,7 @@ type DemoFeatureState = DemoData & {
 }
 
 const initialState: DemoFeatureState = {
-  items: [],
+  items: null,
   error: null,
   status: null,
 }
@@ -41,7 +41,7 @@ const demoSlice = createSlice({
     addingDemoDataSuccess(state, { payload }: PayloadAction<DemoDataItem>) {
       state.error = null
       state.status = null
-      state.items.push(payload)
+      // TODO
     },
   },
 })

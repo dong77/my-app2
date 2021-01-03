@@ -45,12 +45,13 @@ export interface DemoDataItem {
 }
 
 export interface DemoData {
-  items: DemoDataItem[]
+  items: DemoDataItem[] | null
 }
 
 export async function loadDemoData(): Promise<DemoData> {
   const url =
     'https://raw.githubusercontent.com/dong77/api-mock/main/demo_data.json'
   const resp = await axios.get<DemoData>(url)
+
   return resp.data
 }

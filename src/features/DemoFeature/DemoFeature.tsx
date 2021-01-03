@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, shallowEqual } from 'react-redux'
 import { selectDemo } from 'app/rootReducer'
 import classnames from 'classnames'
 import DemoDataTable, { RowData } from 'components/DemoDataTable/DemoDataTable'
 import { fetchDemoData, addDemoData } from './DemoFeatureSlice'
-
 interface NavbarButtonProps {
   label: string
   pathnames: string[]
@@ -13,14 +12,15 @@ interface NavbarButtonProps {
 
 const DemoFeature = () => {
   const dispatch = useDispatch()
+  const demo = useSelector(selectDemo, shallowEqual)
+
+  console.log('demo itmes', demo)
 
   useEffect(() => {
-    if (!demo.items || demo.items.length === 0) {
-      // dispatch(fetchDemoData())
+    if (demo.items === null) {
+      dispatch(fetchDemoData())
     }
-  })
-
-  const demo = useSelector(selectDemo)
+  }, [demo])
 
   if (demo.error) {
     return <div>Error: {demo.error}</div>
@@ -30,7 +30,15 @@ const DemoFeature = () => {
     return <div>Status: {demo.status}</div>
   }
 
-  return <DemoDataTable items={[]} />
+  const demoItems = demo.items || []
+  const items = demoItems.map((item, idx) => ({
+    label: item.label,
+    value: item.value.toString(),
+    unit: 'ETH',
+    timestamp: item.timestamp,
+  }))
+
+  return <DemoDataTable items={items} />
 }
 
 export default DemoFeature

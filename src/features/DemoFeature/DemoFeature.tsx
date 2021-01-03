@@ -5,6 +5,12 @@ import classnames from 'classnames'
 import DemoDataTable, { RowData } from 'components/DemoDataTable/DemoDataTable'
 import { fetchDemoData, addDemoData } from './DemoFeatureSlice'
 import { formatUnit } from 'utils/AmountUtils'
+import {
+  LocalizeContextProps,
+  Translate as T,
+  withLocalize,
+} from 'react-localize-redux'
+
 interface NavbarButtonProps {
   label: string
   pathnames: string[]
@@ -61,7 +67,12 @@ const DemoFeature = () => {
       >
         Add
       </button>
-      <DemoDataTable items={items} />
+      <DemoDataTable
+        headingLabel={<T id="demo.label" />}
+        headingValue={<T id="demo.value" />}
+        headingTime={<T id="demo.timestamp" />}
+        items={items}
+      />
     </div>
   )
 }

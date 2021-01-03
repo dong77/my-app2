@@ -1,4 +1,9 @@
 {
   "greeting": ["grettings", "你好"],
-  "farewell": ["bye", "再见"]
+  "farewell": ["bye", "再见"],
+  "demo": {
+    "label": ["Label", "标识符"],
+    "value": ["Value", "值"],
+    "timestamp": ["Timestamp", "时间"]
+  }
 }

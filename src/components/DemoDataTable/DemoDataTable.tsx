@@ -23,6 +23,9 @@ export interface RowData {
 }
 
 export interface DemoDataTableProps {
+  headingLabel: React.ReactNode
+  headingValue: React.ReactNode
+  headingTime: React.ReactNode
   /**
    * a list of row data
    */
@@ -32,7 +35,12 @@ export interface DemoDataTableProps {
 /**
  * A component to demo how we seperate UI from logics
  */
-const DemoDataTable = ({ items }: DemoDataTableProps) => {
+const DemoDataTable = ({
+  headingLabel,
+  headingValue,
+  headingTime,
+  items,
+}: DemoDataTableProps) => {
   const _items = items || []
   const func = (item: RowData, idx: number) => (
     <tr key={idx}>
@@ -48,9 +56,9 @@ const DemoDataTable = ({ items }: DemoDataTableProps) => {
     <table className={styles.DemoDataTable} data-testid="DemoDataTable">
       <thead>
         <tr>
-          <th>Label</th>
-          <th>Amount</th>
-          <th>Time</th>
+          <th>{headingLabel}</th>
+          <th>{headingValue}</th>
+          <th>{headingTime}</th>
         </tr>
       </thead>
       <tbody>{_items.map(func)}</tbody>

@@ -35,3 +35,22 @@ export async function loadTokens(): Promise<Token[]> {
   const resp = await axios.get<Token[]>(url)
   return resp.data
 }
+
+//---------------api for the demo feature
+
+export interface DemoDataItem {
+  label: string
+  value: string
+  timestamp: number
+}
+
+export interface DemoData {
+  items: DemoDataItem[]
+}
+
+export async function loadDemoData(): Promise<DemoData> {
+  const url =
+    'https://raw.githubusercontent.com/dong77/api-mock/main/demo_data.json'
+  const resp = await axios.get<DemoData>(url)
+  return resp.data
+}

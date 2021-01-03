@@ -36,7 +36,7 @@ export const configuredStore = (history: History, initialState?: RootState) => {
     preloadedState: initialState,
   })
 
-  if (process.env.NODE_ENV === 'development' && module.hot) {
+  if (module.hot) {
     module.hot.accept(
       './rootReducer',
       // eslint-disable-next-line

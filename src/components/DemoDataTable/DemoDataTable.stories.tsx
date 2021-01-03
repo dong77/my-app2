@@ -1,10 +1,20 @@
 /* eslint-disable */
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import DemoDataTable from './DemoDataTable'
+import DemoDataTable, { DemoDataTableProps } from './DemoDataTable'
+import { Story, Meta } from '@storybook/react/types-6-0'
 
-storiesOf('DemoDataTable', module).add('default', () => {
-  const items = [
+export default {
+  title: 'DemoDataTable',
+  component: DemoDataTable,
+} as Meta
+
+const Template: Story<DemoDataTableProps> = (args) => (
+  <DemoDataTable {...args} />
+)
+
+export const Primary = Template.bind({})
+Primary.args = {
+  items: [
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
@@ -12,6 +22,5 @@ storiesOf('DemoDataTable', module).add('default', () => {
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
     { label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 },
-  ]
-  return <DemoDataTable items={items} />
-})
+  ],
+}

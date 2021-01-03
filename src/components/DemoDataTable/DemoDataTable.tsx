@@ -4,16 +4,34 @@ import { DemoData, DemoDataItem } from 'api/loopringAPI'
 
 // label, value, unit, timestamp
 export interface RowData {
+  /**
+   * The label
+   */
   label: string
+  /**
+   * the value in full string
+   */
   value: string
+  /**
+   * the value's unit
+   */
   unit: string
+  /**
+   * timestamp
+   */
   timestamp: number
 }
 
-interface DemoDataTableProps {
+export interface DemoDataTableProps {
+  /**
+   * a list of row data
+   */
   items: RowData[]
 }
 
+/**
+ * A component to demo how we seperate UI from logics
+ */
 const DemoDataTable = ({ items }: DemoDataTableProps) => {
   const func = (item: RowData, idx: number) => (
     <tr key={idx}>

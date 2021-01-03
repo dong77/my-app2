@@ -27,3 +27,8 @@ Default.args = {
 
 export const Empty = Template.bind({})
 Empty.args = {}
+
+export const OneRow = Template.bind({})
+Empty.args = {
+  items: [{ label: 'foo', value: '123.1', unit: 'ETH', timestamp: 1234567 }],
+}

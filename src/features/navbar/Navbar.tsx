@@ -42,12 +42,12 @@ const Navbar = () => {
     <nav className={'l--has-shadow'}>
       <ul>
         <NavbarButton
-          label="Home222"
+          label="Home"
           pathnames={['/']}
           currentPathname={pathname}
         />
         <NavbarButton
-          label="Account2111"
+          label="Account"
           pathnames={['/account']}
           currentPathname={pathname}
         />

@@ -15,7 +15,9 @@ import './styles.scss'
 import './index.scss'
 import translation from './translation.json'
 
-console.log('public url: ', process.env.PUBLIC_URL)
+const AppContainer = process.env.PLAIN_HMR
+  ? React.Fragment
+  : ReactHotAppContainer
 
 const history = createBrowserHistory()
 const store = configuredStore(history)
@@ -36,24 +38,23 @@ const render = () => {
   const App = require('./app/App').default
 
   ReactDOM.render(
-    <Provider store={store}>
-      <LocalizeProvider store={store}>
-        <ConnectedRouter history={history}>
-          <ApplyTheme>
-            <App />
-          </ApplyTheme>
-        </ConnectedRouter>
-      </LocalizeProvider>
-    </Provider>,
+    <AppContainer>
+      <Provider store={store}>
+        <LocalizeProvider store={store}>
+          <ConnectedRouter history={history}>
+            <ApplyTheme>
+              <App />
+            </ApplyTheme>
+          </ConnectedRouter>
+        </LocalizeProvider>
+      </Provider>
+    </AppContainer>,
     document.getElementById('root')
   )
 }
 
 render()
 
-if (module.hot) {
-  module.hot.accept('./app/App', () => {
-    console.log('hot.............')
-    render()
-  })
+if (process.env.NODE_ENV === 'development' && module.hot) {
+  module.hot.accept('./app/App', render)
 }

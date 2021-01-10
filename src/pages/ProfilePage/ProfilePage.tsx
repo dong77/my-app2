@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
-import Navbar from 'features/navbar/Navbar'
+import Navbar from 'features/Navbar/Navbar'
 import styles from './ProfilePage.module.scss'
 
 const ProfilePage: React.FC = () => {

@@ -10,7 +10,7 @@ import {
   initialize,
 } from 'react-localize-redux'
 import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
-import ApplyTheme from 'features/themeFeature/ApplyTheme'
+import ApplyTheme from 'features/ThemeFeature/ApplyTheme'
 import './styles.scss'
 import './index.scss'
 import translation from './translation.json'

@@ -7,7 +7,7 @@ import styles from './Navbar.module.scss'
 import {
   applyLightTheme,
   applyDarkTheme,
-} from 'features/themeFeature/themeSlice'
+} from 'features/ThemeFeature/ThemeSlice'
 import ConnectButtonLocalized from 'components/ConnectButton/ConnectButton'
 
 interface NavbarButtonProps {

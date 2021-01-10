@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
 
+import RelayerConfigAccess from 'features/RelayerConfig/RelayerConfigAccess'
+
 import HomePage from 'pages/HomePage/HomePage'
 import AccountPage from 'pages/AccountPage/AccountPage'
 import ExchangePage from 'pages/ExchangePage/ExchangePage'
@@ -16,19 +18,27 @@ const Routes = () => (
       <HomePage />
     </Route>
     <Route exact path="/profile">
-      <ProfilePage />
+      <RelayerConfigAccess>
+        <ProfilePage />
+      </RelayerConfigAccess>
     </Route>
     <Route exact path="/demo">
       <DemoPage />
     </Route>
     <Route exact path="/account">
-      <AccountPage />
+      <RelayerConfigAccess>
+        <AccountPage />
+      </RelayerConfigAccess>
     </Route>
     <Route exact path="/exchange">
-      <ExchangePage />
+      <RelayerConfigAccess>
+        <ExchangePage />
+      </RelayerConfigAccess>
     </Route>
     <Route exact path="/defi">
-      <DeFiPage />
+      <RelayerConfigAccess>
+        <DeFiPage />
+      </RelayerConfigAccess>
     </Route>
     <Route exact path="/docs">
       <DocsPage />

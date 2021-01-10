@@ -1,17 +1,18 @@
 import React from 'react'
 import styles from './AccountPage.module.scss'
-import Navbar from 'features/navbar/Navbar'
+import Navbar from 'features/Navbar/Navbar'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 const AccountPage: React.FC = () => {
   const dispatch = useDispatch()
-  // const globalConfig = useSelector(selectGlobalConfig, shallowEqual)
+  // const RelayerConfig = useSelector(selectRelayerConfig, shallowEqual)
 
   // useEffect(() => {
-  //   if (!isGlobalConfigLoaded(globalConfig)) {
-  //     dispatch(fetchGlobalConfig())
+  //   if (!isRelayerConfigLoaded(RelayerConfig)) {
+  //     dispatch(fetchRelayerConfig())
   //   }
-  // }, [globalConfig])
+  // }, [RelayerConfig])
+
   return (
     <div className={styles.AccountPage} data-testid="AccountPage">
       <Navbar />

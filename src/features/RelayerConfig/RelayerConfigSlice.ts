@@ -3,36 +3,36 @@ import {
   Exchange,
   Token,
   Tokens,
-  GlobalConfig,
+  RelayerConfig,
   loadExchange,
   loadTokens,
 } from 'api/loopringAPI'
 import { AppThunk } from 'app/store'
 
-type GlobalConfigState = GlobalConfig & {
+type RelayerConfigState = RelayerConfig & {
   error: string | null
 }
 
-const initialState: GlobalConfigState = {
+const initialState: RelayerConfigState = {
   version: null,
   addressToTokenMap: null,
   idToTokenMap: null,
   error: null,
 }
 
-const globalConfigSlice = createSlice({
-  name: 'globalConfig',
+const RelayerConfigSlice = createSlice({
+  name: 'RelayerConfig',
   initialState,
   reducers: {
-    loadingGlobalConfigStart(state, action: PayloadAction<undefined>) {
+    loadingRelayerConfigStart(state, action: PayloadAction<undefined>) {
       state.error = null
     },
-    loadingGlobalConfigFailure(state, { payload }: PayloadAction<string>) {
+    loadingRelayerConfigFailure(state, { payload }: PayloadAction<string>) {
       state.error = payload
     },
-    loadingGlobalConfigSuccess(
+    loadingRelayerConfigSuccess(
       state,
-      { payload }: PayloadAction<GlobalConfig>
+      { payload }: PayloadAction<RelayerConfig>
     ) {
       state.error = null
       const { version, addressToTokenMap, idToTokenMap } = payload
@@ -44,19 +44,19 @@ const globalConfigSlice = createSlice({
 })
 
 const {
-  loadingGlobalConfigStart,
-  loadingGlobalConfigFailure,
-  loadingGlobalConfigSuccess,
-} = globalConfigSlice.actions
-export default globalConfigSlice.reducer
+  loadingRelayerConfigStart,
+  loadingRelayerConfigFailure,
+  loadingRelayerConfigSuccess,
+} = RelayerConfigSlice.actions
+export default RelayerConfigSlice.reducer
 
-export const isGlobalConfigLoaded = (state: GlobalConfigState) => {
+export const isRelayerConfigLoaded = (state: RelayerConfigState) => {
   return state.version && state.addressToTokenMap && state.idToTokenMap
 }
 
-export const fetchGlobalConfig = (): AppThunk => async (dispatch) => {
+export const fetchRelayerConfig = (): AppThunk => async (dispatch) => {
   try {
-    dispatch(loadingGlobalConfigStart())
+    dispatch(loadingRelayerConfigStart())
 
     const [exchange, tokens] = await Promise.all([loadExchange(), loadTokens()])
 
@@ -72,9 +72,9 @@ export const fetchGlobalConfig = (): AppThunk => async (dispatch) => {
       addressToTokenMap,
       idToTokenMap,
     }
-    console.log('config: ', config)
-    dispatch(loadingGlobalConfigSuccess(config))
+    console.log('config loaded: ', config)
+    dispatch(loadingRelayerConfigSuccess(config))
   } catch (err) {
-    dispatch(loadingGlobalConfigFailure(err.toString()))
+    dispatch(loadingRelayerConfigFailure(err.toString()))
   }
 }

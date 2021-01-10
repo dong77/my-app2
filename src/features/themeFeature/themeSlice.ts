@@ -11,7 +11,7 @@ const initialState: ThemeState = {
   vars: lightTheme,
 }
 
-const themeSlice = createSlice({
+const ThemeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
@@ -26,5 +26,5 @@ const themeSlice = createSlice({
   },
 })
 
-export const { applyLightTheme, applyDarkTheme } = themeSlice.actions
-export default themeSlice.reducer
+export const { applyLightTheme, applyDarkTheme } = ThemeSlice.actions
+export default ThemeSlice.reducer

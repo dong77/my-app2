@@ -18,7 +18,7 @@ export interface Tokens {
   idToTokenMap: Record<number, Token> | null
 }
 
-export type GlobalConfig = Exchange & Tokens
+export type RelayerConfig = Exchange & Tokens
 
 //------------- example api
 

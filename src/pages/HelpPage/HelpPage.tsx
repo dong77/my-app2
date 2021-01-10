@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './HelpPage.module.scss'
-import Navbar from 'features/navbar/Navbar'
+import Navbar from 'features/Navbar/Navbar'
 const HelpPage: React.FC = () => (
   <div className={styles.HelpPage} data-testid="HelpPage">
     <Navbar />

@@ -10,10 +10,12 @@ import {
 import { AppThunk } from 'app/store'
 
 type RelayerConfigState = RelayerConfig & {
+  loadedAt: number | null
   error: string | null
 }
 
 const initialState: RelayerConfigState = {
+  loadedAt: null,
   version: null,
   addressToTokenMap: null,
   idToTokenMap: null,
@@ -68,6 +70,7 @@ export const fetchRelayerConfig = (): AppThunk => async (dispatch) => {
     }
 
     const config = {
+      loadedAt: new Date().getTime(),
       version: exchange.version,
       addressToTokenMap,
       idToTokenMap,

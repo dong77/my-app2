@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
-import { configuredStore } from './app/store'
+import { configuredStore, loadFromLocalStorage } from './app/store'
 import { createBrowserHistory } from 'history'
 import {
   LocalizeProvider,
@@ -20,7 +20,7 @@ const AppContainer = process.env.PLAIN_HMR
   : ReactHotAppContainer
 
 const history = createBrowserHistory()
-const store = configuredStore(history)
+const store = configuredStore(history, loadFromLocalStorage())
 
 store.dispatch(
   initialize({

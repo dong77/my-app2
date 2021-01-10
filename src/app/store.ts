@@ -6,6 +6,8 @@ import { createLogger } from 'redux-logger'
 import { createBrowserHistory, History } from 'history'
 import createRootReducer, { RootState } from './rootReducer'
 
+const sessionExpiry = 15 * 60 * 1000
+
 const getMiddlewares = (history: History) => {
   const middleware = [
     ...getDefaultMiddleware({
@@ -29,6 +31,37 @@ const getMiddlewares = (history: History) => {
   return middleware
 }
 
+function saveToLocalStorage(state: RootState) {
+  try {
+    const serialisedState = JSON.stringify(state)
+    localStorage.setItem('persistantState', serialisedState)
+    console.log('state saved to local storage')
+  } catch (e) {
+    console.warn(e)
+  }
+}
+
+// load string from localStarage and convert into an Object
+// invalid output must be undefined
+export function loadFromLocalStorage() {
+  try {
+    const serialisedState = localStorage.getItem('persistantState')
+    if (serialisedState === null) return undefined
+
+    const state = JSON.parse(serialisedState)
+    if (!state || state.loadAt < new Date().getTime() - sessionExpiry) {
+      console.log('no local cached state or expired')
+      return undefined
+    } else {
+      console.log('state loaded from local storage')
+      return state
+    }
+  } catch (e) {
+    console.warn(e)
+    return undefined
+  }
+}
+
 export const configuredStore = (history: History, initialState?: RootState) => {
   const store = configureStore({
     reducer: createRootReducer(history),
@@ -44,6 +77,7 @@ export const configuredStore = (history: History, initialState?: RootState) => {
     )
   }
 
+  store.subscribe(() => saveToLocalStorage(store.getState()))
   return store
 }
 

@@ -29,6 +29,8 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
     'linebreak-style': 'off',
     'prettier/prettier': [
       'error',

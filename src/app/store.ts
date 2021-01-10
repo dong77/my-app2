@@ -5,6 +5,7 @@ import { ThunkAction } from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { createBrowserHistory, History } from 'history'
 import createRootReducer, { RootState } from './rootReducer'
+import throttle from 'lodash.throttle'
 
 const sessionExpiry = 15 * 60 * 1000
 
@@ -77,7 +78,12 @@ export const configuredStore = (history: History, initialState?: RootState) => {
     )
   }
 
-  store.subscribe(() => saveToLocalStorage(store.getState()))
+  store.subscribe(
+    throttle(() => {
+      saveToLocalStorage(store.getState())
+    }, 1000)
+  )
+
   return store
 }
 

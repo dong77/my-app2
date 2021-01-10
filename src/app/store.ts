@@ -7,7 +7,7 @@ import { createBrowserHistory, History } from 'history'
 import createRootReducer, { RootState } from './rootReducer'
 import throttle from 'lodash.throttle'
 
-const sessionExpiry = 15 * 60 * 1000
+const storageCacheExpiry = 15 * 60 * 1000
 
 const getMiddlewares = (history: History) => {
   const middleware = [
@@ -34,10 +34,8 @@ const getMiddlewares = (history: History) => {
 
 function saveToLocalStorage(state: RootState) {
   try {
-    console.log(state)
-    const serialisedState = JSON.stringify(state)
-    localStorage.setItem('appstate', serialisedState)
-    console.log('state saved to local storage')
+    localStorage.setItem('state', JSON.stringify(state))
+    console.log('state saved to local storage', state)
   } catch (e) {
     console.warn(e)
   }
@@ -47,17 +45,17 @@ function saveToLocalStorage(state: RootState) {
 // invalid output must be undefined
 export function loadFromLocalStorage() {
   try {
-    const serialisedState = localStorage.getItem('appstate')
+    const serialisedState = localStorage.getItem('state')
     if (serialisedState === null) return undefined
 
     const state = JSON.parse(serialisedState)
-    if (!state || state.loadAt < new Date().getTime() - sessionExpiry) {
-      console.log('no appstate cached state or expired')
+    if (!state || state.loadAt < new Date().getTime() - storageCacheExpiry) {
+      console.log('no state cached state or expired')
       return undefined
     } else {
       // Remove unwanted cached fields
       state.router = undefined
-      console.log('appstate loaded from local storage', state)
+      console.log('state loaded from local storage', state)
       return state
     }
   } catch (e) {
@@ -84,7 +82,7 @@ export const configuredStore = (history: History, initialState?: RootState) => {
   store.subscribe(
     throttle(() => {
       saveToLocalStorage(store.getState())
-    }, 1000)
+    }, 2500)
   )
 
   return store

@@ -72,7 +72,7 @@ export const fetchRelayerConfig = (): AppThunk => async (dispatch) => {
       addressToTokenMap,
       idToTokenMap,
     }
-    console.log('config: ', config)
+    console.log('config loaded: ', config)
     dispatch(loadingRelayerConfigSuccess(config))
   } catch (err) {
     dispatch(loadingRelayerConfigFailure(err.toString()))

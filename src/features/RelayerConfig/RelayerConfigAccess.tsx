@@ -19,7 +19,6 @@ const RelayerConfigAccess = ({ children }: RelayerConfigAccessProps) => {
     return <div>Error: {error}</div>
   }
   if (!isRelayerConfigLoaded(RelayerConfig)) {
-    console.log('global config loaded')
     return <RelayerConfigLoadingPage />
   }
   return <div>{children}</div>

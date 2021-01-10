@@ -14,7 +14,7 @@ const initialState: DemoFeatureState = {
 }
 
 const demoSlice = createSlice({
-  name: 'demo',
+  name: 'Demo',
   initialState,
   reducers: {
     loadingDemoDataStart(state, action: PayloadAction<undefined>) {

@@ -12,7 +12,7 @@ const initialState: ThemeState = {
 }
 
 const ThemeSlice = createSlice({
-  name: 'theme',
+  name: 'Theme',
   initialState,
   reducers: {
     applyLightTheme(state, action: PayloadAction<undefined>) {

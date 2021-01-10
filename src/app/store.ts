@@ -34,8 +34,9 @@ const getMiddlewares = (history: History) => {
 
 function saveToLocalStorage(state: RootState) {
   try {
+    console.log(state)
     const serialisedState = JSON.stringify(state)
-    localStorage.setItem('persistantState', serialisedState)
+    localStorage.setItem('appstate', serialisedState)
     console.log('state saved to local storage')
   } catch (e) {
     console.warn(e)
@@ -46,15 +47,17 @@ function saveToLocalStorage(state: RootState) {
 // invalid output must be undefined
 export function loadFromLocalStorage() {
   try {
-    const serialisedState = localStorage.getItem('persistantState')
+    const serialisedState = localStorage.getItem('appstate')
     if (serialisedState === null) return undefined
 
     const state = JSON.parse(serialisedState)
     if (!state || state.loadAt < new Date().getTime() - sessionExpiry) {
-      console.log('no local cached state or expired')
+      console.log('no appstate cached state or expired')
       return undefined
     } else {
-      console.log('state loaded from local storage')
+      // Remove unwanted cached fields
+      state.router = undefined
+      console.log('appstate loaded from local storage', state)
       return state
     }
   } catch (e) {

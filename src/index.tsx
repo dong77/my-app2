@@ -11,6 +11,8 @@ import {
 } from 'react-localize-redux'
 import { AppContainer as ReactHotAppContainer } from 'react-hot-loader'
 import ApplyTheme from 'features/ThemeFeature/ApplyTheme'
+import './fonts.scss'
+import './theme.scss'
 import './styles.scss'
 import './index.scss'
 import translation from './translation.json'

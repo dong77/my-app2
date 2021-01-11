@@ -25,7 +25,7 @@ const DemoFeature = () => {
   console.log('demo itmes', demo)
 
   useEffect(() => {
-    if (demo.items === null) {
+    if (!demo.error && demo.items === null) {
       dispatch(fetchDemoData())
     }
   }, [demo])

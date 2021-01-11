@@ -1,0 +1,7 @@
+.navBarButton a {
+  color: var(--text-color-1);
+}
+
+.navBarButton.active a {
+  color: red;
+}
